@@ -144,6 +144,10 @@ async def errorhandler(cog, ctx, error):
     # cog is MyVote object
     if isinstance(error, commands.CommandInvokeError):
         await ctx.send('Voting options should be less than or equal to ten\n( <= 10 )"')
+    if isinstance(error, commands.BadArgument):
+        await ctx.send(
+            'Kindly check the arguments. Examples:-\n!vote 1 "Is Ronaldo better than Messi?"\n!vote 1 "Which number do you like the most?" One Two Three'
+        )
 
 
 # Call !setup to activate vote command
